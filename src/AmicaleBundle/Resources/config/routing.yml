@@ -1,0 +1,18 @@
+amicale_amicale:
+    resource: "@AmicaleBundle/Resources/config/routing/amicale.yml"
+    prefix:   /amicale
+
+amicale_user:
+    path:     /amicale/{id}/showuser
+    defaults: { _controller: AmicaleBundle:Amicale:showuser }
+
+amicale_user2:
+    path:     /amicale/{id}/showuserr
+    defaults: { _controller: AmicaleBundle:Amicale:showuser2 }
+
+amicale_visi1:
+    path:     /amicale/{id}/visi1
+    defaults: { _controller: AmicaleBundle:Amicale:visi1 }
+
+
+

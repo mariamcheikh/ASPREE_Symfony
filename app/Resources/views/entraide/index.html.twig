@@ -1,0 +1,103 @@
+{% extends 'EntraideBundle:Default:index.html.twig' %}
+
+{% block content %}
+    <div class="portlet box red">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-heart"></i></i>liste des entraides
+        </div>
+        <div class="actions">
+
+        <a style="color: white" href="{{ path('entraide_new')}}" class="btn btn-circle red-sunglo ">
+
+        <i class="fa fa-plus-square"> Ajouter un nouveau entraide</i>
+        </a>
+        </div>
+    </div>
+
+    <div class="portlet-body form">
+        <br>
+    <div class="row">
+        <div class="col-md-12">
+
+            {% for entraide in entraides %}
+
+            <div class="portlet-body">
+                   <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="portlet box grey ">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                Detail entraide
+
+
+                                            </div>
+                                            <div class="actions">
+                                                <a style="color: white" href="{{ path('entraide_show', { 'id': entraide.id })  }}" class="btn btn-circle red-sunglo ">
+                                                    <i class="fa fa-eye"> consulter</i>
+                                                </a>
+
+                                                <a style="color: white" href="{{ path('entraide_edit', { 'id': entraide.id }) }}" class="btn btn-circle red-sunglo ">
+                                                    <i class="fa fa-pencil"> Modifier</i>
+
+                                                </a>
+                                                <a href="{{ path('don_new', { 'id': entraide.id })  }}" class="btn btn-circle red-sunglo ">
+                                                    <i class="fa fa-plus"></i> Don
+                                                    </a>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row static-info">
+                                                <div class="col-md-5 name"> Nom: </div>
+                                                <div class="col-md-7 value"> {{ entraide.nom }}
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row static-info">
+                                                <div class="col-md-5 name"> Image: </div>
+                                                <div class="col-md-7 value">
+                                                    <a href="{{ asset('images/'~ entraide.image~ '') }}" >
+                                                    <img src="{{ asset('images/'~ entraide.image~ '') }}" alt="" style="height: 100px;height: 100px" />
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <div class="row static-info">
+                                                <div class="col-md-5 name"> Description: </div>
+                                                <div class="col-md-7 value"> {{ entraide.description }} </div>
+                                            </div>
+                                            <div class="row static-info">
+                                                <div class="col-md-5 name"> Date </div>
+                                                <div class="col-md-7 value">
+                                                     {% if entraide.date %}{{ entraide.date|date('Y-m-d') }}{% endif %}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    </div>
+
+</div>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(entraides) }}
+    </div>
+
+{% endblock %}

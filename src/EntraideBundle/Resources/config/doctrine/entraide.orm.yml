@@ -1,0 +1,33 @@
+EntraideBundle\Entity\entraide:
+    type: entity
+    table: null
+    repositoryClass: EntraideBundle\Repository\entraideRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            length: 255
+        nom:
+            type: string
+            length: 255
+        date:
+            type: date
+        image:
+            type: text
+            nullable: true
+            column: image
+            properties:
+                   bioFile:
+                           - File:
+                               mimeTypes: [image/png, image/jpeg, image/gif]
+                               mimeTypesMessage: Please upload a valid jpg
+    oneToMany:
+            dons:
+                targetEntity: EntraideBundle\Entity\don
+                mappedBy: entraide
+    lifecycleCallbacks: {  }

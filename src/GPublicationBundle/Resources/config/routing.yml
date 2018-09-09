@@ -1,0 +1,33 @@
+
+reaction_new:
+    path:     /{id}/reaction/new
+    defaults: { _controller: GPublicationBundle:Reaction:new }
+
+reaction_delete:
+    path:     /{id}/reaction/delete
+    defaults: { _controller: GPublicationBundle:Reaction:delete }
+
+reaction_edit:
+    path:     /{id}/reaction/edit
+    defaults: { _controller: GPublicationBundle:Reaction:edit }
+
+reaction_index:
+    path:     /reaction
+    defaults: { _controller: GPublicationBundle:Reaction:index }
+
+reaction_show:
+    path:     /{id}/reaction
+    defaults: { _controller: GPublicationBundle:Reaction:index }
+g_publication_Ajout:
+    path:     /
+    defaults: { _controller: GPublicationBundle:GPublication:new }
+g_publication_Modifier:
+    path:     /modifier/{id}
+    defaults: { _controller: GPublicationBundle:GPublication:update }
+
+g_publication_Supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: GPublicationBundle:GPublication:delete }
+
+
+

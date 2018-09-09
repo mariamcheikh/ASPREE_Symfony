@@ -1,0 +1,42 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div id="tab_1-1" class="tab-pane active">
+
+
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_profile_edit'), 'attr': {'class': 'fos_user_profile_edit'}}) }}
+    <h3 class="">Changez les informations</h3>
+    <div class="form-group">
+        {{ form_widget(form.nom, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Nom'} }) }}
+        {% for errorItem in form.username.vars.errors %}
+            <span class="help-inline">{{ errorItem.message }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.prenom, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Prenom'} }) }}
+        {% for errorItem in form.username.vars.errors %}
+            <span class="help-inline">{{ errorItem.message }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.username, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Pseudo'} }) }}
+        {% for errorItem in form.username.vars.errors %}
+            <span class="help-inline">{{ errorItem.message }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder':'E-mail'} }) }}
+        {% for errorItem in form.email.vars.errors %}
+            <span class="help-inline">{{ errorItem.message }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.current_password, { 'attr': {'class': 'form-control', 'placeholder':'Password'} }) }}
+        {% for errorItem in form.current_password.vars.errors %}
+            <span class="help-inline">{{ errorItem.message }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-actions">
+        <button type="submit" id="register-submit-btn" class="btn red pull-right"><i>Enregistrer</i></button>
+    </div>
+    {{ form_end(form) }}
+</div>

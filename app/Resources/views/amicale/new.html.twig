@@ -1,0 +1,135 @@
+{% extends 'AmicaleBundle:Default:indexadmin.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+    <style>
+        input#amicalebundle_amicale_nomAmicale {
+            color: black;
+        }
+        input#amicalebundle_amicale_typeAmicale {
+            color: black;
+        }
+        input#amicalebundle_amicale_montantAmicale {
+            color: black;
+        }
+        input#amicalebundle_amicale_descriptionAmicale {
+            color: black;
+        }
+
+        select#amicalebundle_amicale_user {
+            color: black;
+        }
+        button#Créeramicale {
+            color: black;
+        }
+
+
+    </style>
+
+    <div class="row">
+        <div  class="panel panel-default" >
+
+
+                <div class="panel-heading">  <i class="fa fa-gift"></i> Ajout d'un amicale
+                </div>
+                    <a style="color: white" href="{{  path('amicale_index') }}"><i class="fa fa-pencil">Liste des Amicales</i></a>
+
+
+                <div class="portlet box red">
+                    <div class="portlet-title">
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <div class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">nom Amicale</label>
+                                        <div class="col-md-4">
+
+                                            {{ form_widget(form.nomAmicale, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">type Amicale</label>
+                                        <div class="col-md-4">
+                                            {{ form_widget(form.typeAmicale, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                                        </div>
+                                        </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">montant</label>
+                                        <div class="col-md-4">
+                                            {{ form_widget(form.montantAmicale, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">description Amicale</label>
+                                        <div class="col-md-4">
+                                            {{ form_widget(form.descriptionAmicale, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"> User </label>
+                                        <div class="col-md-4">
+                                            {{ form_widget(form.user, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"> Image Amicale</label>
+                                        <div class="col-md-4">
+                                            {{ form_widget(form.image, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+
+                                            <button type="submit" id="Créeramicale" class="btn red"> Créer amicale </button>
+                                            <br>
+                                            <br>
+
+
+
+                                        </div>
+                                    </div>
+                                </div></div>
+
+                            <!-- END FORM-->
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    {#<ul>#}
+    {#<li>#}
+    {#<a href="{{ path('amicale_index') }}"> Afficher la liste des amicales </a>#}
+    {#</li>#}
+    {#</ul>
+    {{ form_widget(form, {'label_attr': {'class': 'btn btn-circle blue'}}) }}
+                            {{ form_end() }}
+
+                             <form action="#" class="form-horizontal"> </form>
+    #}
+</div>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,106 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+
+<div class="tabbable-line tabbable-full-width">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="{{ path('fos_user_profile_show') }}" >
+                Mon Profil </a>
+        </li>
+        <li>
+            <a href="{{ path('fos_user_profile_edit') }} " >
+                Compte </a>
+        </li>
+        <li>
+            <a href="#Abonnés link" data-toggle="tab">
+                Abonnés </a>
+        </li>
+        <li>
+            <a href="#publication link" data-toggle="tab">
+                Publications </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab_1_1">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-unstyled profile-nav">
+                        <li>
+                            <img src="{{ asset('assets/admin/pages/media/profile/profile-img.png')}}" class="img-responsive" alt=""/>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12 profile-info">
+                            <h1>----</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+                            </p>
+                            <p>
+                                <a href="javascript:;">
+                                    ------------ </a>
+                            </p>
+                            <ul class="list-inline">
+                                <li>
+                                    <i class="fa fa-map-marker"></i> Spain
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar"></i> 18 Jan 1982
+                                </li>
+                                <li>
+                                    <i class="fa fa-briefcase"></i> Design
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i> Top Seller
+                                </li>
+                                <li>
+                                    <i class="fa fa-heart"></i> BASE Jumping
+                                </li>
+                            </ul>
+
+
+
+                            {% if app.request.hasPreviousSession %}
+                                {% for type, messages in app.session.flashbag.all() %}
+                                    {% for message in messages %}
+                                        <div class="flash-{{ type }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+
+                            <div>
+                                {% block fos_user_content %}
+                                {% endblock fos_user_content %}
+                            </div>
+
+
+
+                            {% trans_default_domain 'FOSUserBundle' %}
+
+                            <div class="fos_user_user_show">
+                                <h3><p><b>{{ 'profile.show.username'|trans }}: </b>{{ user.username }}</p>
+                                    <b><p>{{ 'profile.show.email'|trans }}: </b>{{ user.email }}</p></h3>
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

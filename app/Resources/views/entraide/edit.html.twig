@@ -1,0 +1,95 @@
+{% extends 'EntraideBundle:Default:index.html.twig' %}
+
+{% block content %}
+    {{ form_start(edit_form) }}
+    <div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>modification entraide
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <div class="form-horizontal">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">nom entraide</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.nom, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">description entraide</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.description, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                </div>
+
+                {#<div class="form-group">#}
+                    {#<label class="col-md-3 control-label">#}
+                        {#<i class="fa fa-picture-o"></i>#}
+                        {#image</label>#}
+                    {#<div class="col-md-4">#}
+
+                        {#{{ form_widget(form.image, {'label_attr': {'class': 'form-control upload-circle'}}) }}#}
+
+                    {#</div>#}
+                {#</div>#}
+
+
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+
+
+                        <input type="submit" value="modifier" class="btn btn-circle red"/>
+
+
+
+                    </div>
+                </div>
+            </div></div>
+
+        <!-- END FORM-->
+    </div>
+    </div>
+    {#<ul>#}
+    {#<li>#}
+    {#<a href="{{ path('amicale_index') }}"> Afficher la liste des amicales </a>#}
+    {#</li>#}
+    {#</ul>
+    {{ form_widget(form, {'label_attr': {'class': 'btn btn-circle blue'}}) }}
+                            {{ form_end() }}
+
+                             <form action="#" class="form-horizontal"> </form>
+    #}
+
+    {{ form_end(edit_form) }}
+{% endblock %}
+
+{#{% block content %}#}
+    {#<h1>Entraide edit</h1>#}
+
+    {#{{ form_start(edit_form) }}#}
+        {#{{ form_widget(edit_form) }}#}
+        {#<input type="submit" value="Edit" />#}
+{#{{ form_widget(edit_form.nom) }}#}
+    {#{{ form_widget(edit_form.description)  }}#}
+    {#{{ form_end(edit_form) }}#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('entraide_index') }}">Back to the list</a>#}
+        {#</li>#}
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
+    {#</ul>#}
+{#{% endblock %}#}

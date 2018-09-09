@@ -1,0 +1,684 @@
+{% extends 'layoutPub.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <div class="page-sidebar navbar-collapse collapse">
+                <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true"
+                    data-slide-speed="200">
+                    <li class="active">
+                        <a href="{{ path('user_homepage') }}">
+
+                            <i class="icon-home"></i>
+                            <span class="title">Acceuil</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('fos_user_profile_show') }}">
+                            <i class="icon-user"></i>
+                            <span class="title">Profil</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('user_homepage') }}">
+                            <i class="icon-home"></i>
+                            <span class="title">Communauté</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('entraide_index') }}">
+                            <i class="fa fa-group"></i>
+                            <span class="title">Entraide</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('event_new') }}">
+                            <i class="icon-home"></i>
+                            <span class="title">Evenements</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('agenda_index') }}">
+                            <i class="icon-home"></i>
+                            <span class="title">Agenda</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('formation_index') }}">
+                            <i class="icon-home"></i>
+                            <span class="title">Formations</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+
+                <!-- BEGIN PAGE HEADER-->
+                <h3 class="page-title">
+                    Accueil
+                    <small>ASPREE</small>
+                </h3>
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">Accueil</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row">
+                    <div class="col-md-1"></div>
+
+
+                    <div class="col-sm-12 center">
+
+                        <div class="portlet box green-haze">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-gift"></i>Créer une publication
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="expand">
+                                    </a>
+                                    <a href="#portlet-config" data-toggle="modal" class="config">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body" style="display: none;">
+                                <ul class="nav nav-tabs">
+                                    <li>
+                                        <a href="#tab_1_1" data-toggle="tab">
+                                            Video/Image </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_1_2" data-toggle="tab">
+                                            Status </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_1_3" data-toggle="tab">
+                                            Fichiers/Album </a>
+                                    </li>
+
+                                </ul>
+
+
+                                <div class="tab-content">
+                                    <div class="tab-pane fade " id="tab_1_1">
+                                        {{ form_start(form) }}
+                                        <div class="form-body">
+                                            <div class="col-md-10 ">
+                                                {{ form_widget(form.publication.description, { 'attr': {'rows': '5' ,  'class': 'wysihtml5 form-control','placeholder': 'A quoi pensez-vous?'} }) }}
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"></label>
+                                                {{ form_widget(form._token) }}
+                                                <div class="form-group" n>
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail"
+                                                             style="width: 200px; height: 150px;">
+                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=Pas+de+fichier"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                                             style="max-width: 200px; max-height: 150px;">
+                                                        </div>
+                                                        <div>
+																<span class="btn default btn-file">
+																<span class="fileinput-new">
+																Select image </span>
+																<span class="fileinput-exists">
+																Change </span>
+                                                                    {{ form_widget(form.fichier, {'attr' : {'type' : 'file'} }) }}
+																</span>
+                                                            <a href="javascript:;"
+                                                               class="btn default fileinput-exists"
+                                                               data-dismiss="fileinput">
+                                                                Remove </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">URL
+                                                        </label>
+                                                        <div>
+                                                            {{ form_widget(form.lien, {'attr' : {'name': 'url' ,'type': 'text' , 'class' : 'form-control'} }) }}
+                                                            <span class="help-block">
+											e.g: http://www.demo.com or http://demo.com </span>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-md-offset-2 col-md-10 ">
+                                                            <button type="submit" class="btn green" value="Publier">
+                                                                <i class="fa fa-share"></i> Publier
+                                                            </button>
+                                                            <button type="button" class="btn default">Cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        {{ form_end(form) }}
+
+
+                                        <div class="col-md-1"></div>
+
+
+                                    </div>
+
+
+                                    <div class="tab-pane fade" id="tab_1_2">
+
+                                    </div>
+                                    <div class="tab-pane fade" id="tab_1_3">
+                                        <p>
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix margin-bottom-20">
+                                </div>
+
+                            </div>
+
+                        </div><!--end box-->
+
+
+                        <div class="timeline">
+                            <div class="timeline-item" id="tl">
+                                {% for p in publications %}
+
+
+
+                                    <div class="timeline-badge">
+                                        <img class="timeline-badge-userpic"
+                                             src="{{ asset('assets/admin/pages/media/users/avatar80_1.jpg') }}">
+
+                                    </div>
+
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <a href="javascript:;"
+                                                   class="timeline-body-title font-blue-madison">{{ p.user.nom }} {{ p.user.prenom }} </a>
+                                                <span class="timeline-body-time font-grey-cascade">{{ p.dateCreation }}</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                                {% if p.user == app.user %}
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-circle green-haze btn-sm dropdown-toggle "
+                                                                type="button" data-toggle="dropdown"
+                                                                data-hover="dropdown" data-close-others="true">
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </button>
+
+                                                        <ul class="dropdown-menu pull-right" role="menu">
+
+                                                            <li>
+                                                                <a href="{{ path('g_publication_Modifier', {'id': p.id}) }}">Modifier</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a data-toggle="modal" href="#draggable1">
+                                                                    Delete </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div id="publicaion" class="timeline-body-content">
+
+                                            <div class="scroller" data-height="50px" data-always-visible="1"
+                                                 data-rail-visible1="1">
+                                       	<span class="font-grey-cascade">
+                                            <p> {{ p.description | raw }}</p>
+                                  </span>
+                                            </div>
+                                            {% for f in p.fichiers %}
+
+                                                <div id="myCarousel{{ p.id }}" class="carousel image-carousel slide">
+                                                    <div class="carousel-inner">
+                                                        <div class=" item">
+                                                            <div id="player"></div>
+                                                            <div class="carousel-caption">
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="active item">
+
+
+                                                            {% if f.fichier is not null %}
+                                                            {% if f.fichier|slice(-4) == ".pdf" %}
+                                                                <embed src="{{ asset('uploads/fichiers/'~ f.fichier ~ '') }}"
+                                                                       width="100%" height="470px"
+                                                                       type='application/pdf'></embed>
+                                                            {% else %}
+                                                            <img src="{{ asset('uploads/fichiers/'~ f.fichier ~ '') }}"
+                                                                 class="img-responsive" width="100%"
+                                                                 style="max-height: 400px;" alt="">
+                                                            {% endif %}
+                                                            {% if f.lien is not null %}
+
+                                                                <script>
+                                                                    var player;
+                                                                    function onYouTubeIframeAPIReady() {
+                                                                        player = new YT.Player('player', {
+                                                                            height: '360',
+                                                                            width: '100%',
+                                                                            videoId: "{{ f.lien|slice(-11) }}",
+                                                                            events: {
+                                                                                'onReady': onPlayerReady,
+                                                                                'onStateChange': onPlayerStateChange
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                </script>
+                                                            {% else %}
+
+                                                            {% endif %}
+                                                            {% endif %}
+
+                                                            <div class="carousel-caption">
+                                                                <h4>
+                                                                    <a href="page_news_item.html">
+                                                                        Second Thumbnail label </a>
+                                                                </h4>
+                                                                <p>
+
+
+                                                                    {{ p.description }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- Carousel nav -->
+                                                    {% if f.lien is not null %}
+                                                        <a class="carousel-control left" href="#myCarousel{{ p.id }}"
+                                                           data-slide="prev">
+                                                            <i class="m-icon-big-swapleft m-icon-white"></i>
+                                                        </a>
+                                                        <a class="carousel-control right" href="#myCarousel{{ p.id }}"
+                                                           data-slide="next">
+                                                            <i class="m-icon-big-swapright m-icon-white"></i>
+                                                        </a>
+                                                        <ol class="carousel-indicators">
+                                                            <li data-target="#myCarousel{{ p.id }}" data-slide-to="0">
+                                                            </li>
+                                                            <li data-target="#myCarousel{{ p.id }}" data-slide-to="1"
+                                                                class="active">
+                                                            </li>
+                                                        </ol>
+                                                    {% endif %}
+                                                </div>
+                                            {% endfor %}
+
+                                        </div>
+                                        <div class="portlet gren">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <a class="">{{ facebookButton() }} </a>
+                                                    <a class="">{{ googleplusButton() }} </a>
+                                                    <a class="">{{ twitterButton() }} </a>
+
+                                                    <a href="javascript: ;" id="like"
+                                                       class="btn btn-xs green-haze btn-circle">
+
+                                                        {{ p.likes }} <i class="icon-like">
+                                                        </i> </a>
+                                                    <a href="javascript:;" id="dislike"
+                                                       class="btn btn-xs green-haze btn-circle">
+                                                        {{ p.dislikes }} <i class="icon-dislike">
+                                                        </i>
+
+                                                    </a>
+                                                    </i>
+                                                    </a>
+                                                </div>
+
+                                                <div class="tools">
+                                                    <a href="javascript:;" class="expand">
+                                                    </a>
+                                                    <a href="" class="fullscreen">
+                                                    </a>
+                                                    <a href="javascript:;" class="remove">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="portlet-body display-hide">
+                                                <div class="tab-content" style="background-color: transparent;">
+                                                    <!-- COMMENT FORM-->
+                                                    {% set av =0 %}
+                                                    {{ form_start(arrayForms[loop.index0]) }}
+                                                    {% for reaction in reactions %}
+                                                        {% if reaction.user == app.user and reaction.avis is not null and reaction.avis != 0 %}
+                                                            {% if reaction.avis == 1 %}
+                                                                {% set av =1 %}
+                                                            {% endif %}
+                                                            {% if reaction.avis == 2 %}
+                                                                {% set av =2 %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    {% if av == 0 %}
+                                                        {{ form_widget(arrayForms[loop.index0].dislike,{'attr': {'value': 'dislike' ,'name' : 'dislike', 'class': 'btn btn-xs btn-circle '}  }) }}
+                                                        {{ form_widget(arrayForms[loop.index0].like,{'attr': {'value': 'like' ,'name' : 'like', 'class': 'btn btn-xs  btn-circle'}  }) }}
+                                                    {% elseif av == 1 %}
+
+                                                        {{ form_widget(arrayForms[loop.index0].dislike,{'attr': {'value': 'dislike' ,'name' : 'dislike', 'class': 'btn btn-xs btn-circle '}  }) }}
+                                                        {{ form_widget(arrayForms[loop.index0].like,{'attr': {'value': 'like' ,'name' : 'like', 'class': 'btn btn-xs green-haze btn-circle'}  }) }}
+                                                    {% elseif av == 2 %}
+                                                        {{ form_widget(arrayForms[loop.index0].dislike,{'attr': {'value': 'dislike' ,'name' : 'dislike', 'class': 'btn btn-xs green-haze btn-circle '}  }) }}
+                                                        {{ form_widget(arrayForms[loop.index0].like,{'attr': {'value': 'like' ,'name' : 'like', 'class': 'btn btn-xs btn-circle'}  }) }}
+                                                    {% endif %}
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <ul class="media-list">
+                                                                <li class="media">
+                                                                    <img class="todo-userpic pull-left"
+                                                                         src="../../assets/admin/layout/img/avatar4.jpg"
+                                                                         width="27px" height="27px">
+                                                                    <div class="media-body">
+                                                                        {{ form_widget(arrayForms[loop.index0].contenu,{ 'attr': {'class': 'form-control todo-taskbody-taskdesc','rows':'4','placeholder':'Votre commentaire...'} }) }}
+
+
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            {{ form_widget(arrayForms[loop.index0].Commenter,{'attr': {'value': 'Commenter' ,'name' : 'Valider', 'class': 'pull-right btn btn-sm btn-circle green-haze'}  }) }}
+                                                            {{ form_widget(arrayForms[loop.index0].publication.id,{'attr':{'value':  p.id  } }) }}
+                                                            {{ form_widget(arrayForms[loop.index0].Valider,{'attr': {'value': 'Commenter' ,'name' : 'Valider', 'class': 'pull-right btn btn-sm btn-circle green-haze','style':' visibility: hidden; '}  }) }}
+
+                                                        </div>
+                                                    </div>
+                                                    {{ form_end(arrayForms[loop.index0]) }}
+
+                                                    <!-- END COMMENT FORM -->
+                                                    <!-- TASK COMMENTS -->
+
+                                                    <div class="col-md-12">
+
+                                                        <ul class="media-list">
+                                                            {% for reaction in reactions %}
+                                                                {% if reaction.publication == p %}
+                                                                    <div class="actions">
+
+                                                                        {% if reaction.user == app.user and reaction.contenu is not null %}
+
+
+                                                                            <div class="btn-group pull-right">
+                                                                                <button type="button"
+                                                                                        class="btn btn-xs grey-salt dropdown-toggle"
+                                                                                        data-toggle="dropdown"
+                                                                                        data-hover="dropdown"
+                                                                                        data-delay="1000"
+                                                                                        data-close-others="true">
+                                                                                    <i class="fa fa-angle-down"></i>
+                                                                                </button>
+                                                                                <ul class="dropdown-menu pull-right"
+                                                                                    role="menu">
+                                                                                    <li>
+                                                                                        <a data-toggle="modal"
+                                                                                           href="#CommentModif{{ reaction.id }}">Modifier</a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a data-toggle="modal"
+                                                                                           href="#CommentSupp{{ reaction.id }}">Supprimer</a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a>nombre
+                                                                                            signales: {% if reaction.nbrSignal is null %} {{ reaction.nbrSignal }} {% endif %}</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="modal fade draggable-modal"
+                                                                                 id="CommentSupp{{ reaction.id }}"
+                                                                                 tabindex="-1"
+                                                                                 role="basic" aria-hidden="true">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal"
+                                                                                                    aria-hidden="true"></button>
+                                                                                            <h4 class="modal-title">
+                                                                                                Supprimer la
+                                                                                                publication</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button"
+                                                                                                    data-dismiss="modal"
+                                                                                                    class="btn default">
+                                                                                                Fermer
+                                                                                            </button>
+                                                                                            <a type="submit"
+                                                                                               href="{{ path('reaction_delete', {'id': reaction.id  }) }} "
+                                                                                               class="btn blue">
+                                                                                                Supprimer </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!-- /.modal-content -->
+                                                                                </div>
+                                                                                <!-- /.modal-dialog -->
+                                                                            </div>
+                                                                            <div class="modal fade draggable-modal"
+                                                                                 id="CommentModif{{ reaction.id }}"
+                                                                                 tabindex="-1"
+                                                                                 role="basic" aria-hidden="true">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal"
+                                                                                                    aria-hidden="true"></button>
+                                                                                            <h4 class="modal-title">
+                                                                                                Supprimer la
+                                                                                                publication</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+
+                                                                                            {{ form_start(arrayEditForms[loop.index0]) }}
+                                                                                            {{ form_widget(arrayEditForms[loop.index0].id,{'attr':{'value':  reaction.id ,'style': 'visibility: hidden;'} }) }}
+                                                                                            {{ form_widget(arrayEditForms[loop.index0].publication.id,{'attr':{'value':  reaction.publication.id } }) }}
+                                                                                            <label>Votre nouveau
+                                                                                                commentaire: </label>
+                                                                                            {{ form_widget(arrayEditForms[loop.index0].contenu, { 'attr': {'rows': '4','class': 'form-control todo-taskbody-taskdesc','placholder': reaction.contenu } }) }}
+                                                                                            {{ form_widget(arrayEditForms[loop.index0].Commenter,{'attr': {'value':'Commenter' , 'name' : 'Commenter' ,'style':' visibility: hidden; '}  }) }}
+
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button"
+                                                                                                    data-dismiss="modal"
+                                                                                                    class="btn default">
+                                                                                                Fermer
+                                                                                            </button>
+                                                                                            {{ form_widget(arrayEditForms[loop.index0].Valider,{'attr': {'value':'Valider' , 'name' : 'Valider' , 'class': 'btn blue'}  }) }}
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        {{ form_end(arrayEditForms[loop.index0]) }}
+
+                                                                                    </div>
+                                                                                    <!-- /.modal-content -->
+                                                                                </div>
+                                                                                <!-- /.modal-dialog -->
+                                                                            </div>
+
+                                                                        {% endif %}
+
+                                                                    </div>
+                                                                    {% if reaction.contenu is not null %}
+                                                                        <li class="media">
+
+
+                                                                            <a class="pull-left" href="javascript:;">
+                                                                                <img class="todo-userpic"
+                                                                                     src="../../assets/admin/layout/img/avatar8.jpg"
+                                                                                     width="27px" height="27px">
+                                                                            </a>
+
+                                                                            <div class="media-body todo-comment">
+                                                                                <button type="button"
+                                                                                        class="todo-comment-btn btn btn-circle btn-default btn-xs">
+                                                                                    &nbsp; Signaler &nbsp;</button>
+                                                                                <p class="todo-comment-head">
+
+
+                                                                                    <span class="todo-comment-username">{{ reaction.user.nom }} {{ reaction.user.prenom }}</span>
+                                                                                    &nbsp; <span
+                                                                                            class="todo-comment-date">{{ reaction.date }}</span>
+                                                                                </p>
+                                                                                <p class="todo-text-color"
+                                                                                   style="max-width: inherit;">
+                                                                                    {{ reaction.contenu }}
+                                                                                </p>
+                                                                                <!-- Nested media object -->
+                                                                            </div>
+
+                                                                        </li>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+
+
+                                                    <!-- END COMMENTS -->
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="modal fade draggable-modal" id="draggable1" tabindex="-1"
+                                         role="basic" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true"></button>
+                                                    <h4 class="modal-title">Supprimer la publication</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Voulez-vous vraiment supprimer cette publication?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal" class="btn default">
+                                                        Fermer
+                                                    </button>
+                                                    <a type="button"
+                                                       href="{{ path('g_publication_Supprimer', {'id': p.id}) }} "
+                                                       class="btn blue"> Supprimer </a>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+
+
+                                {% endfor %}
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END CONTENT   <input type="submit" value="Create" data-loading-text="Loading..." class="demo-loading-btn btn btn-primary">
+                                Loading state </input>-->
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+        }
+    }
+    function stopVideo() {
+        player.stopVideo();
+    }
+</script>
+</div>
+</div>
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        QuickSidebar.init(); // init quick sidebar
+        Demo.init(); // init demo features
+        $('#draggable').draggable({
+            handle: ".modal-header"
+        });
+    });
+
+    {% endblock body %}
+

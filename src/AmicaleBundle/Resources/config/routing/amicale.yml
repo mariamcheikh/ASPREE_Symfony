@@ -1,0 +1,28 @@
+amicale_index:
+    path:     /
+    defaults: { _controller: "AmicaleBundle:Amicale:index" }
+    methods:  GET
+
+amicale_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmicaleBundle:Amicale:show" }
+    methods:  GET
+
+amicale_new:
+    path:     /new
+    defaults: { _controller: "AmicaleBundle:Amicale:new" }
+    methods:  [GET, POST]
+
+amicale_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmicaleBundle:Amicale:edit" }
+    methods:  [GET, POST]
+
+amicale_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmicaleBundle:Amicale:delete" }
+    methods:  DELETE
+
+visibiliteamicale:
+    path:     /visibilite/{id}
+    defaults: { _controller: "AmicaleBundle:Amicale:visibilite" }

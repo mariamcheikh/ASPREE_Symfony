@@ -1,0 +1,19 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine
+
+    app.file_uploader:
+         class: GPublicationBundle\FileUploader
+         arguments: ['%fichiers_directory%']
+
+    app.doctrine_file_listener:
+         class: GPublicationBundle\EventListener\FileUploadListener
+         arguments: ['@app.file_uploader']
+         tags:
+                  - { name: doctrine.event_listener, event: prePersist }
+                  - { name: doctrine.event_listener, event: preUpdate }

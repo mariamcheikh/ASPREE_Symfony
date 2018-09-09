@@ -1,0 +1,35 @@
+AmicaleBundle\Entity\Amicale:
+    type: entity
+    table: null
+    repositoryClass: AmicaleBundle\Repository\AmicaleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomAmicale:
+            type: string
+            length: 255
+            column: nom_Amicale
+        typeAmicale:
+            type: string
+            length: 255
+            column: Type_Amicale
+        montantAmicale:
+            type: integer
+            column: montant_Amicale
+        descriptionAmicale:
+            type: string
+            length: '1000'
+            column: description_Amicale
+        image:
+            type: string
+            length: 255
+        visi:
+            type: integer
+    manyToOne:
+            user:
+                targetEntity: UserBundle\Entity\User
+    lifecycleCallbacks: {  }

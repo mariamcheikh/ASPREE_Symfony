@@ -1,0 +1,161 @@
+{% extends 'layoutPub.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container">
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper">
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true"
+                        data-slide-speed="200">
+                        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                        <li class=" active">
+                            <a href="javascript:;">
+                                <i class="icon-home"></i>
+                                <span class="title">Acceuil</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="icon-home"></i>
+                                <span class="title">Profil</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="icon-home"></i>
+                                <span class="title">Communauté</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="icon-home"></i>
+                                <span class="title">Entraide</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="icon-home"></i>
+                                <span class="title">Evenements</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+
+                    <!-- BEGIN PAGE HEADER-->
+                    <h3 class="page-title">
+                        Boxed Page
+                        <small>responsive boxed layout</small>
+                    </h3>
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a href="index.html">Home</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="#">Page Layouts</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="#">Boxed Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END PAGE HEADER-->
+                    <!-- BEGIN PAGE CONTENT-->
+
+
+                    <div class="timeline">
+                        <div class="timeline-item" id="tl">
+
+                            <div class="timeline-badge">
+                                <img class="timeline-badge-userpic"
+                                     src="{{ asset('assets/admin/pages/media/users/avatar80_1.jpg') }}">
+
+                            </div>
+
+                            <div class="timeline-body">
+                                <div class="timeline-body-arrow">
+
+                                </div>
+                                <div class="timeline-body-head">
+                                    <div class="timeline-body-head-caption">
+                                        <a href="javascript:;"
+                                           class="timeline-body-title font-blue-madison">{{ publication.user.nom }} {{ publication.user.prenom }} </a>
+                                        <span class="timeline-body-time font-grey-cascade">{{ publication.dateCreation }}</span>
+                                    </div>
+                                    <div class="timeline-body-head-actions">
+
+                                    </div>
+                                </div>
+                                {{ form_start(form) }}
+                                <div class="timeline-body-content">
+                                    <div class="col-md-10">
+                                        {{ form_widget(form.description, { 'attr': {'rows': '5' ,  'class': 'wysihtml5 form-control','placeholder': 'A quoi pensez-vous?' , 'value':'{{ publication.description }}'} }) }}
+                                    </div>
+                                </div>
+
+                                <button type="submit" value="Create" class="btn green"><i class="fa fa-check"></i>
+                                    Submit
+                                </button>
+                                <button type="button" class="btn default"
+                                        href="http://localhost/ourProjet/web/app_dev.php/publication/"><i
+                                            class="fa fa-minus-circle"></i> Cancel
+                                </button>
+
+                                {{ form_end(form) }}
+                                {% for f in publication.fichiers %}
+                                    {% if f.fichier is not null %}
+                                        <img href="Pub" src="{{ asset('uploads/fichiers/'~ f.fichier ~ '') }}"
+                                             class="img-fluid timeline-img" width="100%" style="max-height: 400px;"
+                                             alt="Responsive image">
+                                    {% endif %}
+                                {% endfor %}
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- END CONTENT   <input type="submit" value="Create" data-loading-text="Loading..." class="demo-loading-btn btn btn-primary">
+                        Loading state </input>-->
+
+    </div>
+    </div>
+    </div>
+{% endblock body %}
+

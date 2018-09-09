@@ -1,0 +1,16 @@
+entraide_entraide:
+    resource: "@EntraideBundle/Resources/config/routing/entraide.yml"
+    prefix:   /entraide
+
+don_entraide:
+    resource: "@EntraideBundle/Resources/config/routing/don.yml"
+    prefix:   /don
+
+admin_entraide:
+    path:     /admin/entraide
+    defaults: { _controller: EntraideBundle:entraide:entraide }
+
+entraide_delete:
+    path:     /entraide/{id}/delete
+    defaults: { _controller: EntraideBundle:entraide:delete }
+

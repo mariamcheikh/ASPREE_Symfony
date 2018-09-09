@@ -1,0 +1,24 @@
+agenda_index:
+    path:     /
+    defaults: { _controller: "EventsBundle:agenda:index" }
+    methods:  GET
+
+agenda_show:
+    path:     /{id}/show
+    defaults: { _controller: "EventsBundle:agenda:show" }
+    methods:  GET
+
+agenda_new:
+    path:     /new
+    defaults: { _controller: "EventsBundle:agenda:new" }
+    methods:  [GET, POST]
+
+agenda_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EventsBundle:agenda:edit" }
+    methods:  [GET, POST]
+
+agenda_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EventsBundle:agenda:delete" }
+    methods:  DELETE

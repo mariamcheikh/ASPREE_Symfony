@@ -1,0 +1,50 @@
+
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+<h3 class="">Créez votre compte</h3>
+<div class="form-group">
+    {{ form_widget(form.nom, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Nom'} }) }}
+    {% for errorItem in form.username.vars.errors %}
+        <span class="help-inline">{{ errorItem.message }}</span>
+    {% endfor %}
+</div>
+<div class="form-group">
+    {{ form_widget(form.prenom, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Prenom'} }) }}
+    {% for errorItem in form.username.vars.errors %}
+        <span class="help-inline">{{ errorItem.message }}</span>
+    {% endfor %}
+</div>
+<div class="form-group">
+    {{ form_widget(form.username, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Pseudo'} }) }}
+    {% for errorItem in form.username.vars.errors %}
+        <span class="help-inline">{{ errorItem.message }}</span>
+    {% endfor %}
+</div>
+<div class="form-group">
+    {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder':'E-mail'} }) }}
+    {% for errorItem in form.email.vars.errors %}
+        <span class="help-inline">{{ errorItem.message }}</span>
+    {% endfor %}
+</div>
+<div class="form-group">
+    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder':'Mot de passe'} }) }}
+    {% for errorItem in form.plainPassword.first.vars.errors %}
+        <span class="help-inline">{{ errorItem.message }}</span>
+    {% endfor %}
+</div>
+<div class="form-group">
+    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder':'Repetez Mot de passe'} }) }}
+    {% for errorItem in form.plainPassword.second.vars.errors %}
+        <span class="help-inline">{{ errorItem.message }}</span>
+    {% endfor %}
+</div>
+<div class="form-actions">
+
+    <a class="btn btn-default" href="{{ path('fos_user_security_login') }}"><i class="m-icon-swapleft"></i>Retour</a>
+    <button type="submit" id="register-submit-btn" class="btn red pull-right">S'sinscrire <i class="m-icon-swapright m-icon-white"></i></button>
+
+</div>
+
+{{ form_end(form) }}

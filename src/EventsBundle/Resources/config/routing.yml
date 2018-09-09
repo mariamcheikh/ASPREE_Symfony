@@ -1,0 +1,14 @@
+events_event:
+    resource: "@EventsBundle/Resources/config/routing/event.yml"
+    prefix:   /event
+
+events_agenda:
+    resource: "@EventsBundle/Resources/config/routing/agenda.yml"
+    prefix:   /agenda
+
+my_map_homepage:
+    path:     /map
+    defaults: { _controller: EventsBundle:Default:index }
+
+
+

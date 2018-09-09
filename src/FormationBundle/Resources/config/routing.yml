@@ -1,0 +1,12 @@
+formation_formation:
+    resource: "@FormationBundle/Resources/config/routing/formation.yml"
+    prefix:   /formation
+
+
+admin:
+    path:     /admin
+    defaults: { _controller: FormationBundle:Formation:admin }
+
+admin_formation:
+    path:     /admin/formation
+    defaults: { _controller: FormationBundle:Formation:formation }

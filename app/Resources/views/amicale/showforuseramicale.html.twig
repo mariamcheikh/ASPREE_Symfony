@@ -1,0 +1,86 @@
+{% extends 'AmicaleBundle:Default:index.html.twig' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="portlet box green">
+
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i>Liste des Amicale
+                </div>
+
+            </div>
+
+
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="portlet box green">
+
+
+
+                                            <div class="col-md-4">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+
+                                                        <th> nom Amicale </th>
+                                                        <th> type Amicale </th>
+                                                        <th> montant</th>
+                                                        <th> description </th>
+                                                    </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                    {% for liste in liste %}
+                                                        <tr>
+                                                            <td>
+                                                                {{ liste.nomAmicale }}
+
+                                                            </td>
+                                                            <td>
+                                                                {{ liste.typeAmicale }}
+
+                                                            </td>
+                                                            <td>
+                                                                {{ liste.montantAmicale }}
+
+                                                            </td>
+
+                                                            <td>
+                                                                {{ liste.descriptionAmicale }}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+
+
+
+                                    </div>
+
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

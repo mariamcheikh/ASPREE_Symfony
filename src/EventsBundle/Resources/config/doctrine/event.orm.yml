@@ -1,0 +1,49 @@
+EventsBundle\Entity\event:
+    type: entity
+    table: null
+    repositoryClass: EventsBundle\Repository\eventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomEvent:
+            type: string
+            length: 255
+            column: nom_event
+        description:
+            type: string
+            length: 255
+        dateDebut:
+            type: date
+            column: date_debut
+        dateFin:
+            type: date
+            column: date_fin
+        image:
+            type: string
+            length: 255
+        lieu:
+            type: string
+            length: 255
+        prix:
+            type: float
+        rating:
+            type: string
+            length: 255
+        visibilite:
+            type: integer
+    event:
+      type: entity
+    manyToOne:
+        user:
+          targetEntity: UserBundle\Entity\User
+        agenda:
+          targetEntity: EventsBundle\Entity\agenda
+          inversedBy: event
+          joinColumn:
+            name: agenda_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

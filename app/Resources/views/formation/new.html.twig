@@ -1,0 +1,81 @@
+{% extends 'FormationBundle:Default:index.html.twig' %}
+
+{% block content %}
+
+
+
+    <h1>Creation de la formation</h1>
+
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Type</label>
+        <div class="col-md-9">
+        {{ form_widget(form.type, { 'attr': {'class': 'form-control', 'placeholder':'Type'} }) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Description</label>
+        <div class="col-md-9">
+        {{ form_widget(form.description, { 'attr': {'class': 'form-control', 'placeholder':'Description','rows': '10'} }) }}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Adresse</label>
+        <div class="col-md-9">
+            {{ form_widget(form.adresse, { 'attr': {'class': 'form-control', 'placeholder':'Adresse'} }) }}
+        </div>
+    </div>
+
+    <div class="col-xs-12"><hr></div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Date debut de la formation</label>
+        <div class="col-md-9">
+            {{ form_widget(form.dateDebut, { 'attr': {'class': 'form-date', 'placeholder':'Date Debut de la formation'} }) }}
+        </div>
+    </div>
+
+    <div class="col-xs-12"><hr></div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Date fin de la formation</label>
+        <div class="col-md-9">
+            {{ form_widget(form.dateFin, { 'attr': {'class': 'form-date', 'placeholder':'Date fin de la formation'} }) }}
+        </div>
+    </div>
+
+    <div class="col-xs-12"><hr></div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Payante ou Gratuite ?</label>
+        <div class="col-md-9">
+            {{ form_widget(form.prix, { 'attr': {'class': 'form-control', 'placeholder':'Mettez 0 si gratuite sinon le montant en Dinars'} }) }}
+        </div>
+    </div>
+
+    <div class="col-xs-12"><hr></div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Nombre maximum de participants</label>
+        <div class="col-md-9">
+            {{ form_widget(form.max, { 'attr': {'class': 'form-control', 'placeholder':'Nombre maximum de participants'} }) }}
+        </div>
+    </div>
+
+    <div class="col-xs-12"><hr></div>
+    <div class="form-actions">
+            <input type="submit" value="Create" class="btn red pull-right"/>
+
+    </div>
+
+    {{ form_end(form) }}
+    <div class="form-actions">
+
+        <button  class="btn pull-right"> <a href="{{ path('formation_index') }}">Retour</a> </button>
+    </div>
+
+{% endblock %}
+
+
+
+

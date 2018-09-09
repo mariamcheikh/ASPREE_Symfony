@@ -1,0 +1,63 @@
+{% extends 'EntraideBundle:Default:index.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+    <div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>ajouter don
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <div class="form-horizontal">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">montant don</label>
+                        <div class="col-md-4">
+                            {{ form_widget(form.montant, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">description don</label>
+                        <div class="col-md-4">
+                            {{ form_widget(form.description, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+
+
+                        <input type="submit" value="ajout don" class="btn btn-circle red"/>
+
+
+
+                    </div>
+                </div>
+            </div></div>
+
+        <!-- END FORM-->
+    </div>
+    </div>
+    {#<ul>#}
+    {#<li>#}
+    {#<a href="{{ path('amicale_index') }}"> Afficher la liste des amicales </a>#}
+    {#</li>#}
+    {#</ul>
+    {{ form_widget(form, {'label_attr': {'class': 'btn btn-circle blue'}}) }}
+                            {{ form_end() }}
+
+                             <form action="#" class="form-horizontal"> </form>
+    #}
+
+    {{ form_end(form) }}
+{% endblock %}

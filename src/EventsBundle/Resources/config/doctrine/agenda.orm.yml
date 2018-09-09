@@ -1,0 +1,25 @@
+EventsBundle\Entity\agenda:
+    type: entity
+    table: null
+    repositoryClass: EventsBundle\Repository\agendaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descriptionAgenda:
+            type: string
+            length: 255
+            column: description_agenda
+        dateCreation:
+            type: date
+            column: date_creation
+    agenda:
+      type: entity
+      oneToMany:
+        features:
+          targetEntity: EventsBundle\Entity\event
+          mappedBy: agenda
+    lifecycleCallbacks: {  }

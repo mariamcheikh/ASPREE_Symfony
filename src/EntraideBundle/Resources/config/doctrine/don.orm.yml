@@ -1,0 +1,29 @@
+EntraideBundle\Entity\don:
+    type: entity
+    table: null
+    repositoryClass: EntraideBundle\Repository\donRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        montant:
+            type: float
+        description:
+            type: string
+            length: 255
+            nullable: true
+        date:
+            type: date
+    manyToOne:
+            user:
+                targetEntity: UserBundle\Entity\User
+            entraide:
+                targetEntity: EntraideBundle\Entity\entraide
+                inversedBy: dons
+                joinColumn:
+                    name: entraide_id
+                    referencedColumnName: id
+    lifecycleCallbacks: {  }

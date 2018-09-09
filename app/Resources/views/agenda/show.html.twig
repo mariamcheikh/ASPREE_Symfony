@@ -1,0 +1,78 @@
+{% extends 'EventsBundle:Default:layout.html.twig' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="portlet box green">
+
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i>Liste des Agendas
+                </div>
+                <div class="actions">
+
+                    <a style="color: white" href="{{  path('agenda_new') }}">
+                        <i class="fa fa-plus">Ajouter</i>
+
+                    </a>
+
+
+                </div>
+            </div>
+
+
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="portlet box green">
+
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-gift"></i>Detail agendas
+                                        </div>
+
+                                        <div class="actions">
+
+                                            <a style="color: white" href="{{  path('agenda_edit', { 'id': agenda.id }) }}">
+                                                <i class="fa fa-pencil">Modifier</i>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="portlet-body">
+                                        <div class="row static-info">
+                                            <div class="col-md-5 name">Description: </div>
+                                            <div class="col-md-7 value"> {{ agenda.descriptionAgenda }}</div>
+
+                                            <div class="col-md-5 name">   Date Creation: </div>
+                                            <div class="col-md-7 value"> {{ agenda.dateCreation |date('Y-m-d') }}
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+

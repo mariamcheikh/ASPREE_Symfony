@@ -1,0 +1,121 @@
+{% extends 'EventsBundle:Default:layout.html.twig' %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/font-awesome.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/font-awesome.min.css') }}" />
+    <div class="row">
+        <div class="portlet box green">
+
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i>Liste des évènnements
+                </div>
+                <div class="actions">
+
+                    <a style="color: white" href="{{  path('event_new') }}">
+                        <i class="fa fa-plus">Ajouter</i>
+
+                    </a>
+
+
+                </div>
+            </div>
+
+
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="portlet box green">
+
+                                    <div class="portlet-title">
+                                        {{ 5|rating }}
+                                        <td>
+                                        <td class="hidden-480">
+                                            {% if event.visibilite==1 %}
+
+                                                <span class="label label-sm label-success">Visible</span>
+                                            {% else %}
+                                                <span class="label label-sm label-warning">Invisible</span>
+                                            {% endif %}
+                                        </td>
+                                        <div class="hidden-sm hidden-xs action-buttons">
+                                            <a class="blue" href="{{path('event_visi',{'id':event.id}) }}">
+                                                <i class="ace-icon fa  fa-eye"></i>
+                                            </a>
+
+
+
+                                        </div>
+
+
+                                        </td>
+
+                                        <div class="caption">
+                                            <i class="fa fa-gift"></i>Detail évènnements
+                                        </div>
+
+                                        <div class="actions">
+
+                                            <a style="color: white" href="{{  path('event_edit', { 'id': event.id }) }}">
+                                                <i class="fa fa-pencil">Modifier</i>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="portlet-body">
+                                        <div class="row static-info">
+                                            <div class="col-md-5 name"> Nom  de l'évènnement: </div>
+                                            <div class="col-md-7 value"> {{ event.nomEvent }}</div>
+
+                                            <div class="col-md-5 name">   Description: </div>
+                                            <div class="col-md-7 value"> {{ event.description }} </div>
+
+
+
+                                            <div class="col-md-5 name"> Date Debut: </div>
+                                            <div class="col-md-7 value"> {{ event.dateDebut |date('Y-m-d') }} </div>
+
+
+
+                                            <div class="col-md-5 name"> Date Fin: </div>
+                                            <div class="col-md-7 value">{{ event.dateFin |date('Y-m-d') }}</div>
+
+                                            <div class="col-md-5 name"> Image: </div>
+                                            <div class="col-md-7 value"> <img src="{{ asset('images/'~ event.image~ '') }}" alt="" style="height: 100px;height: 100px" /></div>
+
+                                            <div class="col-md-5 name"> Lieu: </div>
+                                            <div class="col-md-7 value">{{ event.lieu }}</div>
+
+                                            <div class="col-md-5 name"> Prix: </div>
+                                            <div class="col-md-7 value">{{ event.prix }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+

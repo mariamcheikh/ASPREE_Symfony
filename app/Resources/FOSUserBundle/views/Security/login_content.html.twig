@@ -1,0 +1,59 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+<form class="login-form" action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+    <h3 class="form-title">Connexion</h3>
+
+
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-user"></i>
+            <label class="control-label visible-ie8 visible-ie9" for="username">{{ 'security.login.username'|trans }}</label>
+            <input class="form-control placeholder-no-fix" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9" for="password">{{ 'security.login.password'|trans }}</label>
+        <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <input class="form-control placeholder-no-fix" type="password" id="password" name="_password" required="required" />
+        </div>
+    </div>
+
+
+    <div class="form-actions">
+        <input  type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label class="checkbox" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+        <button class="btn red pull-right" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Se Connecter
+            <i class="m-icon-swapright m-icon-white"></i></button>
+
+
+        <div class="forget-password">
+            <h4>Vous avez oublité votre mot de passe  ?</h4>
+            <p>
+                Cliquez  <b><a href="{{ path('fos_user_resetting_request') }}" id="forget-password">
+                        ici </a></b>
+                pour reinitialiser votre mot de passe.
+            </p>
+        </div>
+        <div class="create-account">
+            <p>
+                Vous n'avez pas de compte ?&nbsp;  <a href="{{ path('fos_user_registration_register') }}"><b>Créez un compte</b></a>
+            </p>
+        </div>
+
+    </div>
+
+
+
+</form>
+

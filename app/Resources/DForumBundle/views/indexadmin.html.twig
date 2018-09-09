@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ASPREE Admin</title>
+
+    <link href="{{asset('admint/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admint/css/datepicker3.css')}}" rel="stylesheet">
+    <link href="{{asset('admint/css/styles.css')}}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 9]>
+    <link href="{{asset('admint/css/rgba-fallback.css')}}" rel="stylesheet">
+    <script src="{{asset('admint/js/html5shiv.js')}}"></script>
+    <script src="{{asset('admint/js/respond.min.js')}}"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#">ASPR<span>EE</span></a>
+
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <form role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <ul class="nav menu">
+        <li ><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-dashboard"></span> Acceuil</a></li>
+        <li ><a href="{{ path('admin_formation') }}"><span class="glyphicon glyphicon-list-alt"></span> Formations</a></li>
+        <li class=""><a href=""><span class="glyphicon glyphicon-list-alt"></span> Amicales</a></li>
+        <li class="active"><a href=""><span class="glyphicon glyphicon-list-alt"></span> Communauté & Forum</a></li>
+        <li role="presentation" class="divider"></li>
+        <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+    </ul>
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="active"></li>
+        </ol>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"></h1>
+
+        </div>
+    </div><!--/.row-->
+    {% block content%}
+    {% endblock content%}
+
+
+
+
+
+
+
+</div><!--/.main-->
+
+<script src="{{asset('admint/js/jquery-1.11.1.min.js')}}"></script>
+<script src="{{asset('admint/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('admint/js/chart.min.js')}}"></script>
+<script src="{{asset('admint/js/chart-data.js')}}"></script>
+<script src="{{asset('admint/js/easypiechart.js')}}"></script>
+<script src="{{asset('admint/js/easypiechart-data.js')}}"></script>
+<script src="{{asset('admint/js/bootstrap-datepicker.js')}}"></script>
+<script src="{{asset('admint/js/custom.js')}}"></script>
+<script src="{{asset('admint/js/bootstrap-table.js')}}"></script>
+
+</body>
+
+</html>

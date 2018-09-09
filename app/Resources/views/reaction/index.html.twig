@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reactions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contenu</th>
+                <th>Avis</th>
+                <th>Date</th>
+                <th>Nbrsignal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reaction in reactions %}
+            <tr>
+                <td><a href="{{ path('reaction_show', { 'id': reaction.id }) }}">{{ reaction.id }}</a></td>
+                <td>{{ reaction.contenu }}</td>
+                <td>{{ reaction.avis }}</td>
+                <td>{% if reaction.date %}{{ reaction.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ reaction.nbrSignal }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reaction_show', { 'id': reaction.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reaction_edit', { 'id': reaction.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reaction_new',{'id': 8}) }}">Create a new reaction</a>
+        </li>
+    </ul>
+{% endblock %}

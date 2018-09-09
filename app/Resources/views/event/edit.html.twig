@@ -1,0 +1,129 @@
+
+{% extends 'EventsBundle:Default:layout.html.twig' %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/font-awesome.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/font-awesome.min.css') }}" />
+    {{ form_start(edit_form) }}
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>Ajout d'un évènnement
+            </div>
+            <div class="actions">
+
+        
+
+
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <div class="form-horizontal">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">nom Evennement</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.nomEvent,{'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Description</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.description, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Date Début</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.dateDebut, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Date fin</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.dateFin, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Image</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.image, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Lieu</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.lieu, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Prix</label>
+                        <div class="col-md-4">
+                            {{ form_widget(edit_form.prix, {'label_attr': {'class': 'form-control input-circle'}}) }}
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+
+                            <button type="submit" id="Modifier event" class="btn red"> Modifier </button>
+                            <br>
+                            <br>
+
+
+
+
+                        </div>
+                    </div>
+
+                    {{ form_end(edit_form) }}
+
+                    {{ form_start(delete_form) }}
+
+
+                    <div class="">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+
+                                <button type="submit" id="Supprimer event" class="btn red"> Supprimer </button>
+                                <br>
+                                <br>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+                {{ form_end(delete_form) }}
+
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,76 @@
+{% extends 'FormationBundle:Default:index.html.twig' %}
+
+
+{% block content %}
+<div class="col-md-12">
+    <h1>Informations sur la formations</h1>
+    <div class="col-xs-12"><hr></div>
+    <table id="user" class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th style="width:15%">Type de la formation (Titre)</th>
+                <td style="width:50%">{{ formation.type }}</td>
+            </tr>
+
+            <tr>
+                <th>Description</th>
+                <td>{{ formation.description }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ formation.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Date debut de la formation</th>
+                <td>{% if formation.dateDebut %}{{ formation.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date fin</th>
+                <td>{% if formation.dateFin %}{{ formation.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Payante ou Gratuite ?</th>
+
+
+                {% if formation.prix==0  %}<td>Gratuite</td>
+                {% else  %}<td>{{ formation.prix }} Dinars</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Nombre maximum de participants</th>
+                <td>{{ formation.max }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="form-actions">
+
+        <button  class="btn pull-right"> <a href="{{ path('formation_index') }}">Retour</a> </button>
+    </div>
+
+
+
+        {% if ( app.user.username == formation.creator) %}
+
+
+            <div class="form-actions">
+                <button  class="btn red pull-right"> <a href="{{ path('formation_edit', { 'id': formation.id }) }}">Modifier</a> </button>
+            </div>
+
+            {{ form_start(delete_form) }}
+
+            <div class="col-xs-12"><hr></div>
+            <div class="form-actions">
+                <input type="submit" value="Supprimer" class="btn red pull-right"/>
+                {{ form_end(delete_form) }}
+            </div>
+
+        {% endif %}
+
+
+
+
+</div>
+
+{% endblock %}
